@@ -1,5 +1,3 @@
-import "./styles.css";
-
 let detail = {
   length: 0,
   width: 0,

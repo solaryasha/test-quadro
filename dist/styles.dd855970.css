@@ -1,0 +1,18 @@
+.app {
+  display: flex;
+  flex-wrap: wrap;
+}
+.control {
+  display: flex;
+  justify-content: start;
+  gap: 50px;
+  margin: 50px;
+  align-items: flex-end;
+}
+
+.model {
+  margin: 50px;
+}
+
+
+/*# sourceMappingURL=/styles.dd855970.css.map */
