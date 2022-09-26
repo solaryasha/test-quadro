@@ -6,8 +6,8 @@
   display: flex;
   justify-content: start;
   gap: 50px;
-  align-items: flex-end;
   margin: 50px;
+  align-items: flex-end;
 }
 
 .model {
