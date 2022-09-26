@@ -184,87 +184,7 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":"node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"src/styles.css":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/index.js":[function(require,module,exports) {
-"use strict";
-
-require("./styles.css");
-
-var detail = {
-  length: 0,
-  width: 0,
-  lt: {
-    radius: 0
-  },
-  lb: {
-    radius: 0
-  },
-  rt: {
-    radius: 0
-  },
-  rb: {
-    radius: 0
-  }
-};
-var heightInput = document.getElementById("heightInput");
-var widthInput = document.getElementById("widthInput");
-var rightAngleInput = document.getElementById("rightAngleInput");
-var rotateZ = document.getElementById("rotateZ");
-var corners = ['rt', 'rb', 'lb', 'lt'];
-var cornerIndex = 0;
-var svg = document.getElementById("svg");
-svg.setAttribute("width", window.innerWidth);
-svg.setAttribute("height", window.innerHeight + 100);
-rotateZ.addEventListener('click', function () {
-  var nextCorner = cornerIndex < 3 ? corners[cornerIndex + 1] : corners[0];
-  var currentCorner = corners[cornerIndex];
-  detail[nextCorner].radius = detail[currentCorner].radius;
-  detail[currentCorner].radius = 0;
-
-  if (cornerIndex < 3) {
-    cornerIndex++;
-  } else {
-    cornerIndex = 0;
-  }
-
-  buildRectangle();
-});
-heightInput.addEventListener('input', function (event) {
-  detail.length = Number(event.target.value);
-  buildRectangle();
-});
-widthInput.addEventListener('input', function (event) {
-  detail.width = Number(event.target.value);
-  buildRectangle();
-});
-rightAngleInput.addEventListener('input', function (event) {
-  var currentCorner = corners[cornerIndex];
-  detail[currentCorner].radius = Number(event.target.value);
-  buildRectangle();
-});
-
-function p(x, y) {
-  return x + " " + y + " ";
-}
-
-function rectangle(x, y, w, h, r1, r2, r3, r4) {
-  var strPath = "M" + p(x + r1, y);
-  strPath += "L" + p(x + w - r2, y) + "Q" + p(x + w, y) + p(x + w, y + r2);
-  strPath += "L" + p(x + w, y + h - r3) + "Q" + p(x + w, y + h) + p(x + w - r3, y + h);
-  strPath += "L" + p(x + r4, y + h) + "Q" + p(x, y + h) + p(x, y + h - r4);
-  strPath += "L" + p(x, y + r1) + "Q" + p(x, y) + p(x + r1, y);
-  strPath += "Z";
-  return strPath;
-}
-
-function buildRectangle() {
-  document.getElementById('path').setAttribute('d', rectangle(0, 0, detail.width, detail.length, detail.lt.radius, detail.rt.radius, detail.rb.radius, detail.lb.radius));
-}
-},{"./styles.css":"src/styles.css"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./bundle-url":"node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -468,5 +388,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/index.js"], null)
-//# sourceMappingURL=/src.a2b27638.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
+//# sourceMappingURL=/index.js.map
